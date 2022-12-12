@@ -5,7 +5,7 @@ from .models import User
 from . import db
 from website import functions
 
-appsas = Blueprint('appsas', __name__)
+hangman = Blueprint('hangman', __name__)
 
 secret_word = None
 word_set = None
@@ -14,7 +14,7 @@ tries = None
 blanks = None
 
 
-@appsas.route('/game')
+@hangman.route('/game')
 @login_required
 def game():
 	global secret_word
@@ -38,7 +38,7 @@ def game():
 	return render_template('game.html',user=current_user, to_display=to_display,word_set=word_set,tries="/static/img/hangman%d.png"%tries)
 
 
-@appsas.route('/add_char',methods=["POST"])
+@hangman.route('/add_char',methods=["POST"])
 @login_required
 def add_char():
 	global secret_word
@@ -79,12 +79,12 @@ def add_char():
 
 	return render_template('game.html',user=current_user,to_display=to_display,word_set=word_set,tries="/static/img/hangman%d.png"%tries)
 
-@appsas.route('/game_lost')
+@hangman.route('/game_lost')
 @login_required
 def game_lost_landing():
 	return render_template('game_lost.html',user=current_user,)
 
-@appsas.route('/game_won')
+@hangman.route('/game_won')
 @login_required
 def game_won_landing():
 	return render_template('game_won.html',user=current_user,)

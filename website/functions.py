@@ -2,7 +2,7 @@ import random
 
 WORDFILE = "website\dictionary\countries.csv" 
 
-def get_random_word():
+def get_random_word() -> str:
     """Get a random word from the wordlist using no extra memory."""
     num_words_processed = 0
     curr_word = None
