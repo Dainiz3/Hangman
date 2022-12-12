@@ -1,6 +1,6 @@
 import random
 
-WORDFILE = "website\dictionary\countries.csv" 
+WORDFILE = "website\dictionary\list.csv" 
 
 def get_random_word() -> str:
     num_words_processed = 0
