@@ -26,7 +26,7 @@ def game():
 	word_set = "abcdefghijklmnopqrstuvwxyz"
 	blanks = 0
 	to_display = []
-	for i,char in enumerate(secret_word):
+	for char in enumerate(secret_word):
 		if char==" ":
 			to_display.append(" ")
 			
@@ -51,10 +51,10 @@ def add_char():
 	user = request.form.get('user')
 
 	chance_lost = True
-	for i,char in enumerate(secret_word):
+	for show_letter,char in enumerate(secret_word):
 		if char==letter:
 			chance_lost = False
-			to_display[i] = letter
+			to_display[show_letter] = letter
 			blanks-=1
 
 	word_set = word_set.replace(letter,'')
