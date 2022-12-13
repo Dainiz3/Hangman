@@ -16,7 +16,13 @@
   <div>
     <label>Enter a letter:</label>
     <div>
-      <input type="text" maxlength="1" name="letter" />
+      <input
+        type="text"
+        maxlength="1"
+        onkeydown="return /[a-z]/i.test(event.key)"
+        oninput="this.value=this.value.toLowerCase()"
+        name="letter"
+      />
     </div>
   </div>
   <br />
