@@ -33,7 +33,6 @@ def create_app():
     login_manager.init_app(app)
 
     @login_manager.user_loader
-    # Given *user_id*, return the associated User object.
     def load_user(id):
         return User.query.get(int(id))
     return app

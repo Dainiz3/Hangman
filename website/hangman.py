@@ -1,5 +1,4 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, Blueprint, flash, jsonify, url_for, render_template, request, redirect, session
+from flask import Blueprint, render_template, request, redirect
 from flask_login import login_required, current_user
 from .models import User
 from . import db
@@ -12,7 +11,6 @@ word_set = None
 to_display = None
 tries = None
 blanks = None
-
 
 @hangman.route('/game')
 @login_required
@@ -88,5 +86,4 @@ def game_lost_landing():
 @login_required
 def game_won_landing():
 	return render_template('game_won.html',user=current_user,)
-
 
